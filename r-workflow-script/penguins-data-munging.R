@@ -46,7 +46,11 @@ plot(penguins$flipper_length_mm, penguins$body_mass_g)
 # Add a subset with a pipe
 penguins %>%
   filter(!is.na(sex_factor)) %>%
-  ggplot(aes(bill_depth_mm, bill_length_mm, color = sex_factor, size = body_mass_g)) +
+  ggplot() +
+  aes(
+    x = bill_depth_mm, y = bill_length_mm, 
+    color = sex_factor, size = body_mass_g
+  ) + 
   geom_point(alpha = 0.5) +
   facet_wrap(~species)
 
