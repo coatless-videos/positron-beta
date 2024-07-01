@@ -15,8 +15,8 @@ data(volcano, package = "datasets")
 df <- melt(volcano)
 
 # Construct graph with ggplot2
-p <- ggplot(df, aes(Var1, Var2, z= value)) +
-  stat_contour(geom="polygon",aes(fill=stat(level))) +
+p <- ggplot(df, aes(Var1, Var2, z = value)) +
+  stat_contour(geom = "polygon",aes(fill = after_stat(level))) +
   scale_fill_distiller(palette = "Spectral", direction = -1)
 
 # Graph with ggplot2
